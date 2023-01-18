@@ -11,7 +11,7 @@ const router = createRouter({
     // },
     {
       path: "/auth",
-      component: () => import(/* webpackChunkName: auth */ "@/layout/Auth.vue"),
+      component: () => import(/* webpackChunkName: auth */ "../layout/Auth.vue"),
       redirect: () => {
         return "/auth/signup";
       },
@@ -55,7 +55,7 @@ const router = createRouter({
           // route level code-splitting
           // this generates a separate chunk (About.[hash].js) for this route
           // which is lazy-loaded when the route is visited.
-          component: () => import(/* webpackChunkName: auth */ "@/views/auth/refund.vue")
+          component: () => import(/* webpackChunkName: auth */ "../views/auth/refund.vue")
         },
       ],
     },

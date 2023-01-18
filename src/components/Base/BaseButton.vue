@@ -31,12 +31,12 @@ defineProps({
 
 <style lang="scss" scoped>
 .base-button {
-  font-weight: 500;
-  font-size: 16px;
+  font-weight: 600;
+  font-size: 20px;
   &:not(.q-btn--round) {
-    border-radius: 40px;
+    border-radius: 44px;
   }
-  min-height: 64px;
+  min-height: 62px;
   justify-content: center;
 
   &--reduced {
@@ -45,7 +45,7 @@ defineProps({
   }
 
   :deep(.q-btn__content) {
-    color: $secondary;
+    color: white;
     justify-content: center;
     padding-left: 10px;
     padding-right: 10px;
@@ -68,17 +68,17 @@ defineProps({
   }
   &.q-btn--outline {
     &::before {
-      border-color: $grey-7;
+      border-color: $grey;
     }
   }
   &.disabled:not(.q-btn--outline) {
     background-color: $grey-2 !important;
-    color: $grey-8 !important;
+    color: $grey !important;
     opacity: 1 !important;
   }
   &.disabled.q-btn--outline {
-    border-color: $grey-3 !important;
-    color: $grey-4 !important;
+    border-color: $grey-2 !important;
+    color: $grey !important;
     opacity: 1 !important;
   }
 }

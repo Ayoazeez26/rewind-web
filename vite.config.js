@@ -19,5 +19,12 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  }
+  },
+	chainWebpack: config => {
+		config.module
+			.rule("vue")
+			.use("vue-svg-inline-loader")
+				.loader("vue-svg-inline-loader")
+				.options({ /* ... */ });
+	}
 })

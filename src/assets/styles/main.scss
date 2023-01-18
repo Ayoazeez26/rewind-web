@@ -31,3 +31,23 @@ a {
   display: flex;
   flex-direction: column;
 }
+.q-field--outlined.q-field--highlighted .drop .q-field__control::after{
+  border: none;
+}
+.text-lg {
+  font-size: 18px !important;
+}
+.q-field--auto-height.q-field--labeled.drop {
+  .q-field__control-container {
+    padding-top: 0;
+  }
+  .q-field__append {
+    padding-left: 0;
+  }
+}
+.full-width {
+  width: 100%;
+}
+.relative {
+  position: relative;
+}

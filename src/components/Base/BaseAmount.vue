@@ -8,6 +8,14 @@ export default {
 import { ref } from "vue";
 
 const inputContent = ref("");
+const model = props.options[0];
+const props = defineProps({
+  options: {
+    type: Array,
+    default: () => ['USD'],
+  },
+});
+
 </script>
 
 <template>
@@ -16,12 +24,13 @@ const inputContent = ref("");
       :model-value="inputContent"
       v-bind="$attrs"
       outlined
-      class="base-input"
+      class="base-input text-lg"
       stack-label
       @update:model-value="inputContent = $event"
     >
       <template #prepend>
-        <q-select borderless v-model="model" :options="options" label="" class="drop" />
+        <q-select borderless v-model="model" :options="props.options" label="" class="drop" style="max-width: 300px" />
+        <q-separator vertical class="separate" />
         <!-- <slot name="prepend" /> -->
       </template>
       <template #append>
@@ -67,6 +76,19 @@ const inputContent = ref("");
         color: $grey-2;
       }
 
+      .q-field__prepend {
+        label.drop {
+          font-size: 18px;
+          :deep(.q-field__inner) {
+            :deep(.q-field__control::before) {
+              border: none !important;
+              border-width: 0 !important;
+              border-radius: 0 !important;
+            }
+          } 
+        }
+      }
+
     }
 
     &.q-field--focused.q-field--outlined {
@@ -78,6 +100,17 @@ const inputContent = ref("");
       :deep(.q-field__label) {
         color: $grey;
         top: 0px;
+      }
+      .q-field__prepend {
+        label.drop {
+          :deep(.q-field__inner) {
+            :deep(.q-field__control) {
+              border: none !important;
+              border-width: 0 !important;
+              border-radius: 0 !important;
+            }
+          } 
+        }
       }
     }
   }
@@ -121,13 +154,13 @@ const inputContent = ref("");
       }
     }
   }
-
+  
   &.q-field--disabled {
     :deep(.q-field__control) {
       background-color: $primary;
     }
   }
-
+  
   :deep(.q-field__label) {
     font-size: 20px;
     color: $grey;
@@ -137,5 +170,9 @@ const inputContent = ref("");
     padding: 0 10px;
     z-index: 2;
   }
+}
+.separate {
+  height: 80%;
+  margin-top: 10px;
 }
 </style>
