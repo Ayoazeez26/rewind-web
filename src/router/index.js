@@ -21,12 +21,12 @@ const router = createRouter({
         //   component: () =>
         //     import(/* webpackChunkName: auth */ "@/views/auth/signup.vue"),
         // },
-        // {
-        //   name: "Login",
-        //   path: "login",
-        //   component: () =>
-        //     import(/* webpackChunkName: auth */ "@/views/auth/login.vue"),
-        // },
+        {
+          name: "/login",
+          path: "login",
+          component: () =>
+            import(/* webpackChunkName: auth */ "@/views/auth/login.vue"),
+        },
         // {
         //   name: "ConfirmEmail",
         //   path: "confirm-email",
