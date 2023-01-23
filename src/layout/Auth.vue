@@ -25,8 +25,10 @@ import { ref } from "vue";
     margin-bottom: 40px;
   }
   &-content {
+    min-height: calc(100vh - 128px);
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
     width: 100%;
     flex: 0 0;

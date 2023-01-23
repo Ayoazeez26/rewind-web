@@ -33,14 +33,14 @@ const router = createRouter({
         //   component: () =>
         //     import(/* webpackChunkName: auth */ "@/views/auth/confirm-email.vue"),
         // },
-        // {
-        //   name: "ForgotPassword",
-        //   path: "forgot-password",
-        //   component: () =>
-        //     import(
-        //       /* webpackChunkName: auth */ "@/views/auth/forgot-password.vue"
-        //     ),
-        // },
+        {
+          name: "ForgotPassword",
+          path: "forgot-password",
+          component: () =>
+            import(
+              /* webpackChunkName: auth */ "@/views/auth/forgot-password.vue"
+            ),
+        },
         // {
         //   name: "ResetPassword",
         //   path: "reset-password",

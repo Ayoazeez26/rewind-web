@@ -1,27 +1,34 @@
 <script setup>
 import { ref } from "vue";
-import { required, email, password } from "../../utils/input-validations";
+import { required, email } from "../../utils/input-validations";
+
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const emailAddress = ref("");
-const userPassword = ref("");
-const isPasswordVisible = ref(false);
 
-const togglePasswordVisibility = () => {
-  isPasswordVisible.value = !isPasswordVisible.value;
-}
+const handlePasswordReset = () => {
+  // const data = {
+  //   email: emailAddress.value
+  // };
+
+  localStorage.setItem('user-email', emailAddress.value);
+  router.push('reset-password');
+};
 
 </script>
 <template>
   <div class="login">
     <h2 class="login__title">
-      Good to Have You <span class="text-secondary">back!</span>
+      Get Your <span class="text-secondary">Access</span> Back
     </h2>
     <p class="login__desc">
-      It's been a minute.
+      Enter your registered email.
     </p>
     <q-form
       ref="createloginForm"
-      @submit.prevent="getlogin"
+      @submit.prevent="handlePasswordReset"
     >
       <div class="row justify-center">
         <div class="col-12">
@@ -40,32 +47,8 @@ const togglePasswordVisibility = () => {
         <div class="col-12 q-ma-none">
           <div class="row items-center justify-between q-gutter-sm">
             <div class="col-12 q-ma-none">
-              <BaseInput
-                v-model="userPassword"
-                class=""
-                label="Password"
-                :type="isPasswordVisible ? 'text' : 'password'"
-                lazy-rules
-                :rules="[required, password]"
-              >
-                <template #append>
-                  <q-btn
-                    flat
-                    :label="isPasswordVisible ? 'hide' : 'show'"
-                    class="show-password"
-                    no-caps
-                    @click="togglePasswordVisibility"
-                  ></q-btn>
-                </template>
-              </BaseInput>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 q-ma-none">
-          <div class="row items-center justify-between q-gutter-sm">
-            <div class="col-12 q-ma-none">
               <BaseButton
-                label="Login"
+                label="Request OTP"
                 unelevated
                 no-caps
                 class="bg-black full-width mt-46"
@@ -75,7 +58,7 @@ const togglePasswordVisibility = () => {
           </div>
         </div>
         <p class="login__forget">
-          Can't remember password? <RouterLink to="forgot-password" class="text-secondary">Recover</RouterLink>
+          Don't have this? <span class="text-secondary">Try another method</span>
         </p>
       </div>
     </q-form>

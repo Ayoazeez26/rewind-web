@@ -141,8 +141,8 @@ const banks = ref([
 
 <style lang="scss" scoped>
 .refund {
-  margin-top: 90px;
-  margin-bottom: 40px;
+  // margin-top: 90px;
+  // margin-bottom: 40px;
   background: #FFFFFF;
   box-shadow: 0px 4px 24px 4px rgba(74, 74, 74, 0.05);
   -webkit-box-shadow: 0px 4px 24px 4px rgba(74, 74, 74, 0.05);
