@@ -41,14 +41,14 @@ const router = createRouter({
               /* webpackChunkName: auth */ "@/views/auth/forgot-password.vue"
             ),
         },
-        // {
-        //   name: "ResetPassword",
-        //   path: "reset-password",
-        //   component: () =>
-        //     import(
-        //       /* webpackChunkName: auth */ "@/views/auth/reset-password.vue"
-        //     ),
-        // },
+        {
+          name: "VerifyOtp",
+          path: "verify-otp",
+          component: () =>
+            import(
+              /* webpackChunkName: auth */ "@/views/auth/verify-otp.vue"
+            ),
+        },
         {
           path: "/refund",
           name: "refund",

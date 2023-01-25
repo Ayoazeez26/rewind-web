@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue';
 
 export default defineComponent({
@@ -24,19 +24,16 @@ const router = useRouter();
 const time = ref(60);
 const requestingCode = ref(false);
 const verifyingCode = ref(false);
-let timer: ReturnType<typeof setInterval>;
+let timer;
 const savedEmail = localStorage.getItem('user-email');
 
-const otpKeys: (number|string)[] = Array(6);
+const otpKeys = Array(6);
 
-const handleKeyEntered = (
-  event: { target: HTMLInputElement },
-  index: number
-) => {
+const handleKeyEntered = (event, index) => {
   otpKeys[index] = event.target.value.toString();
   //  Focus on next input field
   if (index < 5) {
-    const nextField: HTMLInputElement | null = document.querySelector(
+    const nextField = document.querySelector(
       `#otp-field-${index + 1} input`
     );
 
@@ -47,14 +44,14 @@ const handleKeyEntered = (
     nextField?.focus();
   } else {
     // Focus on verify otp button
-    const button: HTMLButtonElement | null =
+    const button =
       document.querySelector('#verify-otp-btn');
     button?.focus();
   }
 };
 
-const clearField = (index: number) => {
-  const element: HTMLInputElement | null = document.querySelector(
+const clearField = (index ) => {
+  const element = document.querySelector(
     `#otp-field-${index} input`
   );
   element?.select();

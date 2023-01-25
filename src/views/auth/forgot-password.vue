@@ -14,7 +14,7 @@ const handlePasswordReset = () => {
   // };
 
   localStorage.setItem('user-email', emailAddress.value);
-  router.push('reset-password');
+  router.push('verify-otp');
 };
 
 </script>
